@@ -182,32 +182,35 @@
 
     <!-- Bootstrap JS -->
     <script>
-      const form = document.getElementById("Pendaftaran");
+  const form = document.getElementById("Pendaftaran");
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        const formData = new FormData(form);
+    const formData = new FormData(form);
 
-        fetch("https://script.google.com/macros/s/AKfycbzIA6TfYHKujYU5or-IhLAGcOUcBn01BiAb-uHSOp_RHqYjXzz9wa5zJlsQXxawsGkw6w/exec", {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.text())
-          .then((text) => {
-            if (text === "success") {
-              alert("Pendaftaran berhasil!");
-              form.reset();
-            } else {
-              alert("Gagal menyimpan data");
-              console.log(text);
-            }
-          })
-          .catch((err) => {
-            alert("Terjadi error");
-            console.error(err);
-          });
+    fetch("PASTE_URL_SCRIPT_KAMU_DI_SINI", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.text())
+      .then((text) => {
+        console.log("Response dari server:", text);
+
+        if (text.trim().toLowerCase() === "success") {
+          alert("Pendaftaran berhasil!");
+          form.reset();
+        } else {
+          alert("Gagal menyimpan data");
+        }
+      })
+      .catch((err) => {
+        alert("Terjadi error");
+        console.error(err);
       });
-    </script>
+  });
+</script>
+
   </body>
 </html>
+
