@@ -190,24 +190,19 @@
           method: "POST",
           body: formData,
         })
-          .then((res) => res.text())
-          .then((text) => {
-            if (text === "success") {
-              alert("Pendaftaran berhasil!");
-              form.reset();
-            } else {
-              alert("Gagal menyimpan data");
-              console.log(text);
-            }
+          .then(() => {
+            // redirect ke halaman sukses
+            window.location.href = "success.html";
           })
           .catch((err) => {
-            alert("Terjadi error");
+            alert("Terjadi error, silakan coba lagi.");
             console.error(err);
           });
       });
     </script>
   </body>
 </html>
+
 
 
 
